@@ -50,7 +50,7 @@ function Main() {
     return (<div className="father">
         <Head />
         <section>
-            <h1>Cole a URL a ser Encurtada</h1>
+            <span className="h510p">Cole a URL a ser Encurtada</span>
             <div className="form">
                 <input onChange={(e) => setLink(e.target.value)} placeholder="Cole a URL aqui"></input>
                 <button onClick={save} className="button">Encurtar URL</button>
@@ -63,6 +63,7 @@ function Main() {
         {url &&
             <Showurl url={url} onClick={copyText} />
         }
+        <Footer />
     </div>)
 
 
@@ -87,7 +88,7 @@ function Head() {
 function Showurl(props) {
     return (
         <section>
-            <span>Aqui está seu link</span>
+            <span className="h510p">Aqui está seu link</span>
             <div className="showurl">
                 <p>
                     <a href={props.url} className="teste" target="blank">{props.url}</a>
@@ -96,6 +97,10 @@ function Showurl(props) {
             </div>
         </section>
     )
+}
+
+function Footer(){
+    return <footer>Desenvolvido por Rodrigo</footer>
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Main />)

@@ -50,9 +50,11 @@ section{
     margin: 10px;
 }
 
-section > h1{
+.h510p{
     padding: 30px;
     font-size: 2em;
+    color: #505050;
+    font-weight: 600;
     
 }
 
@@ -125,7 +127,3 @@ section > p{
     text-decoration: underline;
 }
 
-span{
-    padding-top: 20px;
-    font-size: 1.5em;
-}
