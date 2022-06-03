@@ -50,7 +50,7 @@ function Main() {
     return (<div className="father">
         <Head />
         <section>
-            <span className="h510p">Cole a URL a ser Encurtada</span>
+            <span className="span">Cole a URL a ser Encurtada</span>
             <div className="form">
                 <input onChange={(e) => setLink(e.target.value)} placeholder="Cole a URL aqui"></input>
                 <button onClick={save} className="button">Encurtar URL</button>
@@ -88,7 +88,7 @@ function Head() {
 function Showurl(props) {
     return (
         <section>
-            <span className="h510p">Aqui está seu link</span>
+            <span className="span">Aqui está seu link</span>
             <div className="showurl">
                 <p>
                     <a href={props.url} className="teste" target="blank">{props.url}</a>

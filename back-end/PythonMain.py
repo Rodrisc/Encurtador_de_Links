@@ -1,5 +1,3 @@
-import json
-from traceback import print_tb
 from flask import Flask, request
 from flask_cors import CORS
 from saveDB import *
@@ -16,7 +14,6 @@ def redirecionar_url(redirecionar_url):
 
     try:
         retorno_da_url = busca_url(redirecionar_url)
-        print(retorno_da_url)
         return redirect(retorno_da_url[0], code=301)
     except: return 'URL não encontrada'
     

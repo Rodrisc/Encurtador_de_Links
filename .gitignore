@@ -36,3 +36,4 @@ back-end/__pycache__/saveDB.cpython-310.pyc
 back-end/__pycache__/saveDB.cpython-310.pyc
 *.pyc
 teste.sqlite
+*.json
