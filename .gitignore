@@ -1,0 +1,39 @@
+__pycache__
+node_modules
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.json
+.sqlite
+
+back-end/__pycache__/saveDB.cpython-310.pyc
+*.pyc
+front-end/package.json
+teste.sqlite
+back-end/__pycache__/saveDB.cpython-310.pyc
+*.sqlite
+back-end/__pycache__/saveDB.cpython-310.pyc
+*.pyc
+teste.sqlite
+*.json
