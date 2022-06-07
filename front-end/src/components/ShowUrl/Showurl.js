@@ -1,7 +1,7 @@
 export default function Showurl(props) {
     return (
         <section>
-            <span>Aqui está seu link</span>
+            <span className="titulo">Aqui está seu link</span>
             <div className="showurl">
                 <p>
                     <a href={props.url} className="teste" target="blank">{props.url}</a>

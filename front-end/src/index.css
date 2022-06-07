@@ -99,6 +99,7 @@ section > p{
 .showurl{
     display: flex;
     padding: 20px;
+    
 
 }
 
@@ -120,10 +121,16 @@ section > p{
     font-size: 1.2em;
     text-decoration: none;
     color: #2a2a2a;
-    
 }
 
 .teste:hover{
     text-decoration: underline;
 }
 
+.titulo{
+    padding: 20px 20px 2px 20px;
+    font-size: 2em;
+    color: #505050;
+    font-weight: 600;
+    
+}
