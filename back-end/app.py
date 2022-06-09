@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_cors import CORS
-from saveDB import *
+from database import *
 from werkzeug.utils import redirect
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ CORS(app)
 def redirecionar_url(redirecionar_url):
 
     try:
-        retorno_da_url = busca_url(redirecionar_url)
+        retorno_da_url = busca_url(redirecionar_url, cursor)
         return redirect(retorno_da_url[0], code=301)
     except: return 'URL não encontrada'
     
@@ -27,13 +27,13 @@ def guardar():
         return {'link': 'Você precisa adicionar uma URL'}
 
     if url.startswith('http'):
-        save = salvar(url)
+        save = salvar(url, cursor, conex)
         
     else:
-        save = salvar(f'http://{url}')
+        save = salvar(f'http://{url}', cursor, conex)
 
     return {'link': f'http://127.0.0.1:5000/{save}'}
 
 if __name__ == '__main__':
-    
+    conex, cursor = conetar_banco()
     app.run()
