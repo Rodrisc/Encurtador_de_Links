@@ -1,13 +1,7 @@
-from flask import Flask, request
-from flask_cors import CORS
-from database import *
-from werkzeug.utils import redirect
+from flask import redirect, request
+from routes import app, conex, cursor
+from db import busca_url, salvar
 
-app = Flask(__name__)
-app.debug = True
-CORS(app)
-
-#Vai para página principal onde se pede a url para encurtar
 @app.route('/<redirecionar_url>')
 #Se receber um paramentro e o mesmo estiver no BD, vai fazer o redirecionamento para url encontrada.
 def redirecionar_url(redirecionar_url):
@@ -33,7 +27,3 @@ def guardar():
         save = salvar(f'http://{url}', cursor, conex)
 
     return {'link': f'http://127.0.0.1:5000/{save}'}
-
-if __name__ == '__main__':
-    conex, cursor = conetar_banco()
-    app.run()

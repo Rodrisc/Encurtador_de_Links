@@ -13,7 +13,7 @@ def conetar_banco():
     conex.commit()
 
     return conex, cursor
-
+# 
 def busca_url(url, cursor):
 
     cursor.execute(f"select urloriginal from urls where urlcurta = '{url}'") 

@@ -17,6 +17,18 @@ export default function App() {
         setLink('')
     }
 
+    function verificar_link(){
+        var posicao_do_ponto = link.lastIndexOf('.')
+        var str_dps_ponto = link.slice(posicao_do_ponto)
+        
+        if(posicao_do_ponto !== -1 & link !== "" & str_dps_ponto.length >= 2){
+            save()
+        } else{
+            alert(link + " não é um link válido.")
+            setLink('')
+        }
+    }
+
     async function copyText() {
         let TextoCopiado = url
         await navigator.clipboard.writeText(TextoCopiado);
@@ -30,7 +42,7 @@ export default function App() {
             <span className="span">Cole a URL a ser Encurtada</span>
             <div className="form">
                 <input onChange={(e) => setLink(e.target.value)} placeholder="Cole a URL aqui" value={link}></input>
-                <button onClick={save} className="button">Encurtar URL</button>
+                <button onClick={verificar_link} className="button">Encurtar URL</button>
             </div>
             <p>Encurtador.com é uma ferramenta gratuita para encurtar uma URL ou reduzir um link. <br />
                 Use nosso encurtador de URL para criar um link encurtado, facilitando o uso.
