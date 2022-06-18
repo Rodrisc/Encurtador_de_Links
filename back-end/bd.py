@@ -1,7 +1,7 @@
 import random
 import sqlite3
 # iniciando a conexão com o banco
-def conetar_banco():
+def conectar_banco():
     try:
         conex = sqlite3.connect('teste.sqlite', check_same_thread=False)
         cursor = conex.cursor()
@@ -14,14 +14,14 @@ def conetar_banco():
 
     return conex, cursor
 # 
-def busca_url(url, cursor):
+def busca_url(url):
 
     cursor.execute(f"select urloriginal from urls where urlcurta = '{url}'") 
     return cursor.fetchone()
     
-def salvar(url, cursor, conex):
+def salvar(url):
     
-    verificar_hash = verificar_urls_salvas(url, cursor)
+    verificar_hash = verificar_urls_salvas(url)
     
     if verificar_hash:
         return verificar_hash[0]
@@ -34,8 +34,10 @@ def salvar(url, cursor, conex):
     conex.commit()
     return hash
 
-def verificar_urls_salvas(url, cursor):
+def verificar_urls_salvas(url):
 
     sql_comando = (f"select urlcurta from urls where urloriginal='{url}'")
     cursor.execute(sql_comando)
     return cursor.fetchone()
+
+conex, cursor = conectar_banco()

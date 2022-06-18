@@ -19,9 +19,9 @@ export default function App() {
 
     function verificar_link(){
         var posicao_do_ponto = link.lastIndexOf('.')
-        var str_dps_ponto = link.slice(posicao_do_ponto)
+        var str_dps_ponto = link.slice(posicao_do_ponto + 1)
         
-        if(posicao_do_ponto !== -1 & link !== "" & str_dps_ponto.length >= 2){
+        if(posicao_do_ponto !== -1 && link !== "" && str_dps_ponto.length >= 1){
             save()
         } else{
             alert(link + " não é um link válido.")
@@ -30,9 +30,8 @@ export default function App() {
     }
 
     async function copyText() {
-        let TextoCopiado = url
-        await navigator.clipboard.writeText(TextoCopiado);
-        alert('Texto copiado: ' + TextoCopiado)
+        await navigator.clipboard.writeText(url);
+        alert('Texto copiado: ' + url)
 
     }
 

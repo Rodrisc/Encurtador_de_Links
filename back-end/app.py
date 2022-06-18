@@ -1,9 +1,11 @@
 from flask import Flask
-from db import conetar_banco
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-conex, cursor = conetar_banco()
+app.debug = True
 
-from routes import rotas
+from rotas import *
+
+if __name__ == '__main__':
+    app.run()

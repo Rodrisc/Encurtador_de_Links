@@ -1,15 +1,15 @@
 from flask import redirect, request
-from routes import app, conex, cursor
-from db import busca_url, salvar
+from app import app
+from bd import busca_url, salvar
 
 @app.route('/<redirecionar_url>')
 #Se receber um paramentro e o mesmo estiver no BD, vai fazer o redirecionamento para url encontrada.
 def redirecionar_url(redirecionar_url):
 
     try:
-        retorno_da_url = busca_url(redirecionar_url, cursor)
+        retorno_da_url = busca_url(redirecionar_url)
         return redirect(retorno_da_url[0], code=301)
-    except: return 'URL não encontrada'
+    except: return {'erro': 'URL não encontrada'}
     
 @app.route('/savelink', methods=['POST'] )
 def guardar():
@@ -21,9 +21,9 @@ def guardar():
         return {'link': 'Você precisa adicionar uma URL'}
 
     if url.startswith('http'):
-        save = salvar(url, cursor, conex)
+        save = salvar(url)
         
     else:
-        save = salvar(f'http://{url}', cursor, conex)
+        save = salvar(f'http://{url}')
 
     return {'link': f'http://127.0.0.1:5000/{save}'}
